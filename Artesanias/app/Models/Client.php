@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Client extends Model
 {
     use HasFactory;
+    //protected $primaryKey="id_client";
+    //protected $table="client";
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'image_profile',
-        'level'
+        'id_user',
+        'address',
+        'city',
+        'country'
 
     ];
+
 }
