@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () {return view('hola');});
+Route::get('/producto/{id}',
+ function ($id) {
+     return view('verproducto')->with('id',$id);
+    });
+Route::get('/contacto', 
+function () {
+    $contacto="Angélica Salaices";
+    $valores=7;
+    $color="#ccc";
+    return view('contacto')
+    ->with('nombre',$contacto)
+    ->with('valores',$valores)
+    ->with('fondo',$color);
 });
