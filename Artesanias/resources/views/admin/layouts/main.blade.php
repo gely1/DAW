@@ -106,7 +106,7 @@
 </body>
 </html>
 
-    @include('admin.layouts.footer')
+ 
 
     @yield('scripts')
 </body>

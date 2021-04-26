@@ -34,10 +34,13 @@ function () {
 
 
 Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
+    
 Route::get('/', function () {return view('admin.index');});
-Route::get('/usuarios', [App\Http\Controllers\admin\UsuariosController::class,'index'] );
-Route::get('/productos', [App\Http\Controllers\admin\ProductosController::class,'index'] );
 
-Route::resource('productos',App\Http\Controllers\admin\ProductosController::class);
-Route::resource('usuarios',App\Http\Controllers\admin\UsuariosController::class);
+Route::get('/usuarios', [app\Http\Controllers\Admin\UsuariosController::class,'index'] );
+Route::get('/productos', [app\Http\Controllers\Admin\ProductosController::class,'index'] );
+
+Route::resource('productos',App\Http\Controllers\Admin\ProductosController::class);
+Route::resource('usuarios',App\Http\Controllers\Admin\UsuariosController::class);
+
 });

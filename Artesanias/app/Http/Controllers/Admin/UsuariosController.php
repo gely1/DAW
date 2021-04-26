@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class UsuariosController extends Controller
 {
   public function index(){
-      return "HOla";
+      return "Hola";
   }
 }
