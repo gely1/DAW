@@ -30,7 +30,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form action="/admin/productos" method="POST">
+            <form action="/admin/productos" method="POST" enctype="multipart/form-data"> 
             @if($message= Session::get('errorInsert'))
               <div class="alert alert-danger alert-dismissable fade show col-12" role="alert">
                 <h5>Error:</h5>
@@ -52,10 +52,22 @@
                   <input type="number" class="form-control form-control-border" id="precio" min="1" name="precio" value="{{@old('precio')}}">
                 </div>
                 <div class="form-group">
+                  <label for="stock">Descripción</label>
+                  <input type="text" class="form-control form-control-border" id="descripcion" name="descripcion" value="{{@old('descripcion')}}">
+                </div>
+                <div class="form-group">
                   <label for="stock">Stock</label>
                   <input type="text" class="form-control form-control-border" id="stock" name="stock" value="{{@old('stock')}}">
                 </div>
               </div>
+              <div class="form-group">
+                  <label for="stock">Tags</label>
+                  <input type="text" class="form-control form-control-border" id="tags" name="tags" value="{{@old('tags')}}">
+                </div>
+                <div class="form-group">
+                  <label for="stock">Imagen</label>
+                  <input type="file" class="form-control form-control-border" id="imagen" name="imagen" value="{{@old('imagen')}}">
+                </div>
               <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 <button type="submit" class="btn btn-primary">Guardar</button>

@@ -16,9 +16,12 @@ class ProductsMigration extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('price');
             $table->string('description');
-            $table->integer('stock');
+            $table->double('stock');
             $table->string('image');
+            $table->string('tags');
+            $table->string('slug');
             $table->timestamps();//OBLIGATORIOS
 
             
