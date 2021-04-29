@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\Product;
+use File;
 
 class ProductosController extends Controller
 {
@@ -16,7 +17,14 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        
+
+        $datos=\DB::table('products')
+            ->select('products.*')
+            ->orderBy('id', 'DESC')
+            ->get();
+
+
+        return View('admin.products')->with('productos', $datos);
     }
 
     /**
@@ -55,18 +63,18 @@ class ProductosController extends Controller
             $imagen = $request->file('imagen');
             $nombre=time().'.'.$imagen->getClientOriginalExtension();
             $destino= public_path('img/productos');
-            $request->imagen->move($destino.'/'.$nombre);
+            $request->imagen->move($destino, $nombre);
             $producto = Product::create([
-                'name'=>$request->$nombre,
-                'price'=>$request->$precio,
-                'descripcion'=>$request->$descripcion,
-                'stock'=>$request->$stock,
-                'tags'=>$request->$tags,
-                'imagen'=>$nombre,
+                'name'=>$request->nombre,
+                'price'=>$request->precio,
+                'description'=>$request->descripcion,
+                'stock'=>$request->stock,
+                'tags'=>$request->tags,
+                'image'=>$nombre,
                 'slug'=>'',
             ]); //INSERT
             $producto->save();
-            dd($producto->id);
+         return back()->with('Listo','Se ha insertado correctamente');
         }
     }
 
@@ -112,6 +120,11 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $producto = Product::find($id);
+        if(File::exists(public_path('img/productos/'.$producto->image))){
+            unlink(public_path('img/productos/'.$producto->image));
+        }
+        $producto->delete();
+        return back()->with('Listo','Se ha borrado correctamente');
     }
 }
