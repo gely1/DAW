@@ -40,19 +40,19 @@
 
               <li class="nav-item">
                 <a href="./index2.html" class="nav-link">
-                  <i class=" nav-icon"></i>
+                  <i class=" nav-icon fas fa-tachometer-alt"></i>
                   <p>Inicio</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./index3.html" class="nav-link">
-                  <i class=" nav-icon"></i>
+                  <i class=" nav-icon fas fa-list"></i>
                   <p>Productos</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./index3.html" class="nav-link">
-                  <i class=" nav-icon"></i>
+                  <i class=" nav-icon fas fa-users"></i>
                   <p>Usuarios</p>
                 </a>
               </li>
@@ -61,6 +61,17 @@
                   <i class=" nav-icon"></i>
                   <p>Categorías</p>
                 </a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                  <i class=" nav-icon fas fa-logout"></i>
+                  <p>Logout</p>
+              </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
               </li>
 
         </ul>
