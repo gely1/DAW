@@ -35,7 +35,7 @@ function () {
 
 Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
     
-Route::get('/', function () { return view('admin.index');});
+Route::get('/', [App\Http\Controllers\Admin\AdminController::class,'index']);
 
 Route::get('/usuarios', [App\Http\Controllers\Admin\UsuariosController::class,'index'] );
 Route::get('/productos', [App\Http\Controllers\Admin\ProductosController::class,'index'] );

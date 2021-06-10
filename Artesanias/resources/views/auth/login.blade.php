@@ -9,11 +9,11 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('dash/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="{{asset('dash/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="{{asset('dash/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('dash/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="{{asset('dash/dist/css/adminlte.min.css')}}">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -25,7 +25,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form method="POST" action="{{ route('login') }}">
+      <form method="POST" action="{{ asset('login') }}">
         @csrf
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}">

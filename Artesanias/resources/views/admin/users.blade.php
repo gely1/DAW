@@ -1,3 +1,4 @@
+
 @extends('admin.layouts.main')
 @section('contenido')
     <h2>Estoy en los usuarios</h2>
