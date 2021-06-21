@@ -42,6 +42,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
     Route::post('/productos/edit', [App\Http\Controllers\Admin\ProductosController::class,'edit'] );
     Route::get('/clientes', [App\Http\Controllers\Admin\ClientesController::class,'index'] );
 
+    Route::get('/generarPDF',[App\Http\Controllers\Admin\ClientesController::class,'generar'] );
     Route::resource('productos',App\Http\Controllers\Admin\ProductosController::class);
     Route::resource('usuarios',App\Http\Controllers\Admin\UsuariosController::class);
 

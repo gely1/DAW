@@ -11,6 +11,9 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item">
+                <a class="btn btn-outline-primary btn-sm " target="_blank" href="/admin/generarPDF"><i class="fa fa-print"></i>Imprimir Datos</a>
+              </li>
               <li class="breadcrumb-item">
                 <button class="btn btn-outline-primary btn-sm " data-toggle="modal" data-target="#modal-add"><i class="fa fa-plus"></i>Agregar Cliente</button>
               </li>
@@ -36,39 +39,33 @@
               <thead>
               <tr>
                 <th>Nombre</th>
-                <th>Precio</th>
-                <th>Descripción</th>
-                <th>Stock</th>
-                <th>Tagsa</th>
+                <th>Email</th>
+                <th>Dirección</th>
+                <th>Ciudad</th>
+               
                 <th></th>
               </tr>
               </thead>
               <tbody>
-              @foreach($productos as $p)
+              @foreach($datos as $p)
                 <tr>              
-                  <td>
-                 <img src="{{ asset('img/productos/'.$p->image)}}" alt="" width="70px"> {{$p->name}}
-                  </td>
-                  <td>{{$p->price}}</td>
-                  <td>{{$p->description}}</td>
-                  <td>{{$p->stock}}</td>
-                  <td>{{$p->tags}}</td>
+                 
+                  <td>{{$p->name}}</td>
+                  <td>{{$p->email}}</td>
+                  <td>{{$p->address}}</td>
+                  <td>{{$p->city}}</td>
                   <td>
                     <button class="btn btn-danger btnEliminar" data-id="{{$p->id}}"
                     data-toggle="modal" data-target="#modal-delete">
                      <i class="fa fa-trash"></i>
                     </button>
                     <button class="btn btn-primary btnEdit" data-id="{{$p->id}}"
-                    data-name="{{$p->name}}"
-                    data-price="{{$p->price}}"
-                    data-description="{{$p->description}}"
-                    data-stock="{{$p->stock}}"
-                    data-tags="{{$p->tags}}"
+                
                     data-toggle="modal" data-target="#modal-edit">
                      <i class="fa fa-edit"></i>
                     </button>
 
-                    <form action="{{ url('/admin/productos', ['id'=>$p->id])}}"
+                    <form action="{{ url('/admin/clientes', ['id'=>$p->id])}}"
                     method="POST" id="formEliminar_{{$p->id}}" >
                      @csrf 
                      <input type="hidden" name="id" value="{{ $p->id}}">
