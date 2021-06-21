@@ -35,14 +35,15 @@ function () {
 
 Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
     
-Route::get('/', [App\Http\Controllers\Admin\AdminController::class,'index']);
+    Route::get('/', [App\Http\Controllers\Admin\AdminController::class,'index']);
 
-Route::get('/usuarios', [App\Http\Controllers\Admin\UsuariosController::class,'index'] );
-Route::get('/productos', [App\Http\Controllers\Admin\ProductosController::class,'index'] );
-Route::post('/productos/edit', [App\Http\Controllers\Admin\ProductosController::class,'edit'] );
+    Route::get('/usuarios', [App\Http\Controllers\Admin\UsuariosController::class,'index'] );
+    Route::get('/productos', [App\Http\Controllers\Admin\ProductosController::class,'index'] );
+    Route::post('/productos/edit', [App\Http\Controllers\Admin\ProductosController::class,'edit'] );
+    Route::get('/clientes', [App\Http\Controllers\Admin\ClientesController::class,'index'] );
 
-Route::resource('productos',App\Http\Controllers\Admin\ProductosController::class);
-Route::resource('usuarios',App\Http\Controllers\Admin\UsuariosController::class);
+    Route::resource('productos',App\Http\Controllers\Admin\ProductosController::class);
+    Route::resource('usuarios',App\Http\Controllers\Admin\UsuariosController::class);
 
 });
 

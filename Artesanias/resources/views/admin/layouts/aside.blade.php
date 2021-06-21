@@ -63,23 +63,24 @@
               @if( Auth::user()->level == "admin")
 
                 <li class="nav-item">
-                  <a href="./index3.html" class="nav-link">
+                  <a href="/admin/productos" class="nav-link">
                     <i class=" nav-icon fas fa-list"></i>
                     <p>Productos</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./index3.html" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class=" nav-icon fas fa-users"></i>
                     <p>Usuarios</p>
                   </a>
                 </li>
 
               @endif
+
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="/admin/clientes" class="nav-link">
                   <i class=" nav-icon"></i>
-                  <p>Categorías</p>
+                  <p>Clientes</p>
                 </a>
               </li>
               <li class="nav-item">

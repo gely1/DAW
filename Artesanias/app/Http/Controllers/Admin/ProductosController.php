@@ -26,7 +26,7 @@ class ProductosController extends Controller
             return redirect('/admin');
         }
         $datos=\DB::table('products')
-            ->select('products.*')
+            ->select('products.*')cc                                                    x
             ->orderBy('id', 'DESC')
             ->get();
 
